@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ESG News Sentiment Analyzer — requirements.txt
+# Install with:  pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core framework
+streamlit>=1.35.0
+
+# ML / NLP
+transformers>=4.40.0
+torch>=2.2.0        
+torchvision      # CPU version works; for GPU use torch with CUDA extras
+sentence-transformers>=2.7.0
+
+# SHAP (pinned to avoid breaking changes with transformers pipeline API)
+shap>=0.45.0
+
+# Data & numerics
+pandas>=2.0.0
+numpy>=1.26.0
+
+# Plotting
+matplotlib>=3.8.0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Notes
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. First run downloads ~500 MB of model weights (FinBERT + MiniLM).
+#    They are cached in ~/.cache/huggingface/ by default.
+#
+# 2. On Apple Silicon (M1/M2), PyTorch works natively — no CUDA needed.
+#    Install via:  pip install torch  (picks the right wheel automatically)
+#
+# 3. SHAP's text masker requires the tokenizer from the FinBERT pipeline.
+#    All three are wired together inside app.py via @st.cache_resource.
+#
+# 4. scipy is a transitive dep of shap — no explicit pin needed unless you
+#    hit conflicts; add  scipy>=1.12.0  in that case.
+#
+# 5. To run:
+#       streamlit run app.py
+# ─────────────────────────────────────────────────────────────────────────────
