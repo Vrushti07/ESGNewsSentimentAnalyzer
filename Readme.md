@@ -220,9 +220,3 @@ ESG audits need to be defensible. A score without attribution is not auditable. 
 ## Data Source
 
 Economic Times financial headlines collected across 2022–2025, pre-filtered to remove lifestyle, entertainment, astrology, sports, and bollywood content before ESG analysis.
-
----
-
-## License
-
-MIT License. See `LICENSE` for details.
